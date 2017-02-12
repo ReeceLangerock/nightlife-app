@@ -29,11 +29,11 @@ barSchema.methods.newBar = function(id, person, offset){
 
   newBar.save(function(err){
     if(err){
-      console.log(err);
+      
       throw err;
     }
     else{
-      console.log("success");
+
       return 'success';
     }
   })

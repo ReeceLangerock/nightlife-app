@@ -43,6 +43,7 @@ app.use(function(req, res, next) {
 
 app.use('/', require('./controllers/index2'));
 app.use('/auth', require('./controllers/signin'));
+app.use('/logout', require('./controllers/logout'))
 
 //launch
 app.listen(port, function(){

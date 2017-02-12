@@ -87,6 +87,7 @@ function yelpQuery(searchTerm) {
 router.post('/', function(req, res) {
 
     yelpQuery(req.body.searchQuery).then(function(response, error) {
+            console.log()
             var barsToCheck = [];
             var data = response;
             for (let i = 0; i < numBarsToDisplay; i++) {
