@@ -71,6 +71,18 @@ main{
 
 }
 
+.signout{
+  position:absolute;
+   right:10px;
+   top:5px;
+   margin:0px;
+   padding: 0px;
+   width:25px;
+   height: 25px;
+
+}
+
+
 .results {
     margin-bottom: 6px;
     padding: 4px;
