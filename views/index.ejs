@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightlife</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+</head>
+
+<html>
+
+<body>
+
+  <main>
+      <div class = "container">
+        <div class="landing">
+            <h1><%=pageTitle %></h1>
+            <p>See which bars are hoppin' tonight and RSVP ahead of time!
+Remember: take a cab and drink responsibly.</p>
+        </div>
+</div>
+    <div class="container">
+        <div class="search">
+          <form action = '/' method = 'post'>
+            <input class = "searchBox" name = "searchQuery" type="text" placeholder="Where are you going?">
+            <button  class = "searchButton">Search</button>
+          </form>
+        </div>
+    </div>
+    <div class="resultContainer" name = 'lastSearch' id ="<%=search %>">
+      <form action ='/going' method = 'post'>
+      <% if(data != null) { %>
+      <% for(let i=0; i < numBarsToDisplay; i++) { %>
+
+        <div class="results">
+          <div class = "resultItem"><img class = "barImage" src ="<%=data[i].image_url %>"></img>
+            <span class = 'barName'><a href = "<%=data[i].url %>" target = "_blank"><b><%=data[i].name %></b></a>
+            <button name = "attendingButton" value ="<%=data[i].id %>"><%=attending[i] %> Going</button></span>
+            <p><i>"<%=data[i].snippet_text %>"</p></i></div>
+        </div>
+
+        <% } %>
+      <% } %>
+    </form>
+    </div>
+  </main>
+  <footer>
+      <p>Nightlife Coordination App built by <a href ="https://www.freecodecamp.com/reecelangerock"><b>Reece Langerock</b></a></p>
+      <p>This is a FCC Project fulfilling the user stories listed <a href ="https://www.freecodecamp.com/challenges/build-a-nightlife-coordination-app"><b>here</b></a></p>
+      <p>Check out the Github Repo <a href ="https://github.com/ReeceLangerock/nightlife-app"><b>here</b></a></p>
+  </footer>
+</body>
+<script type="text/javascript" src="/toggleGoingToBar.js"></script>
+
+</html>
