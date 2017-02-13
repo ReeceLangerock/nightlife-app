@@ -33,7 +33,7 @@ app.use(function(err, req, res, next){
 
 app.use(cookieSession({
   name: 'session',
-  keys: [env.process.cookieSecret],
+  keys: [process.env.cookieSecret],
   maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }));
 
