@@ -10,8 +10,8 @@ router.use(passport.session());
 
 //google strategy
 passport.use(new GoogleStrategy({
-        clientID: config.getGoogleClientID(),
-        clientSecret: config.getGoogleClientSecret(),
+        clientID: process.env.googleClientID,
+        clientSecret: process.env.googleClientSecret,
         callbackURL: "http://127.0.0.1:3000/auth/google/callback"
     },
     function(accessToken, refreshToken, profile, done) {

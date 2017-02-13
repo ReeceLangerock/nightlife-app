@@ -32,7 +32,7 @@ app.use(function(err, req, res, next){
 })
 
 //passport setup
-app.use(session(config.getSecret()));
+app.use(session(process.env.passportSecret));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(function(req, res, next) {

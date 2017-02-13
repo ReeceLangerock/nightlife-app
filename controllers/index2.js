@@ -4,7 +4,13 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var Yelp = require('yelp');
 var config = require('../config.js');
-var yelp = new Yelp(config.getYelpConfig());
+var yelpConfig = = {
+    consumer_key: process.env.yelp_key,
+    consumer_secret: process.env.yelp_secret,
+    token: process.env.yelp_token,
+    token_secret: process.env.yelp_token_secret,
+};
+var yelp = new Yelp(yelpConfig);
 var bars = require('../models/bars.js')
 var numBarsToDisplay = 15;
 
