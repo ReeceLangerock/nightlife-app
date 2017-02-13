@@ -12,6 +12,7 @@ var yelpConfig = {
 var yelp = new Yelp(yelpConfig);
 var bars = require('../models/bars.js')
 var numBarsToDisplay = 15;
+app.use(session(process.env.passportSecret));
 
 router.use(bodyParser.urlencoded({
     extended: true
