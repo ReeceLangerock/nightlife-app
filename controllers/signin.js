@@ -11,7 +11,7 @@ router.use(passport.session());
 passport.use(new GoogleStrategy({
         clientID: process.env.googleClientID,
         clientSecret: process.env.googleClientSecret,
-        callbackURL: "http://127.0.0.1:3000/auth/google/callback"
+        callbackURL: "https://nightlife-srl.herokuapp.com/auth/google/callback"
     },
     function(accessToken, refreshToken, profile, done) {
 
