@@ -20,11 +20,10 @@ router.use(bodyParser.json());
 
 
 router.get('/', function(req, res) {
-    if(req.isAuthenticated()){
-      var pageTitle = 'Plans Tonight, ' + req.user.name.givenName + '?'
-    }
-    else{
-      var pageTitle = 'Plans Tonight?';
+    if (req.isAuthenticated()) {
+        var pageTitle = 'Plans Tonight, ' + req.user.name.givenName + '?'
+    } else {
+        var pageTitle = 'Plans Tonight?';
     }
     //IF USER HASN'T SEARCHED FOR A LOCATION, RENDER BASIC PAGE
     if (!req.session.lastSearch) {
@@ -201,7 +200,8 @@ function updateNotGoing(barID, userID) {
                 '_id': barID
             }, {
                 $pull: { // remove entry for that user
-                    'attending': {   'personAttending': userID
+                    'attending': {
+                        'personAttending': userID
 
                     }
                 }
