@@ -6,6 +6,7 @@ var path = require('path');
 var port = process.env.PORT || 3000;
 var passport = require('passport');
 var session = require('express-session');
+var cookieSession = require('cookie-session');
 
 
 //MONGOOSE CONFIG
@@ -29,6 +30,12 @@ app.use(function(err, req, res, next){
   res.send("404");
   return;
 })
+
+app.use(cookieSession({
+  name: 'session',
+  keys: [env.process.cookieSecret],
+  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+}));
 
 //passport setup
 app.use(session(process.env.passportSecret));
