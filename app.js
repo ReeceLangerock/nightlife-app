@@ -10,10 +10,9 @@ var config = require('./config.js');
 
 
 //MONGOOSE CONFIG
-
-mongoose.connect('mongodb://'+config.getMongoUser()+':'+config.getMongoPass()+'@ds145669.mlab.com:45669/nightlife');
+//mongoose.connect('mongodb://'+config.getMongoUser()+':'+config.getMongoPass()+'@ds145669.mlab.com:45669/nightlife');
 //below mongoose.connect saved for when moving to heroku
-//mongoose.connect(`mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@ds145669.mlab.com:45669/nightlife`);
+mongoose.connect(`mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@ds145669.mlab.com:45669/nightlife`);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection eror:'));
 db.once('open', function(){
@@ -44,6 +43,9 @@ app.use(function(req, res, next) {
 app.use('/', require('./controllers/index2'));
 app.use('/auth', require('./controllers/signin'));
 app.use('/logout', require('./controllers/logout'))
+app.use(function (req, res, next) {
+  res.status(404).render('404');
+})
 
 //launch
 app.listen(port, function(){

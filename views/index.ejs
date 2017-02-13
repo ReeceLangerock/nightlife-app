@@ -12,48 +12,54 @@
 <html>
 
 <body>
+    <main>
+        <!--SIGNOUT BUTTON -->
+        <a href='./logout'><img class='signout' src='./sign-out.png'></img>
+        </a>
 
-  <main>
-    <a href ='./logout'><img class = 'signout' src = './sign-out.png'></img></a>
-      <div class = "container">
-        <div class="landing">
-
-            <h1><%=pageTitle %></h1>
-            <p>See which bars are hoppin' tonight and RSVP ahead of time!
-Remember: take a cab and drink responsibly.</p>
+        <!--PAGE LANDING -->
+        <div class="container">
+            <div class="landing">
+                <h1><%=pageTitle %></h1>
+                <p>See which bars are hoppin' tonight and RSVP ahead of time! Remember: take a cab and drink responsibly.</p>
+            </div>
         </div>
-</div>
-    <div class="container">
-        <div class="search">
-          <form action = '/' method = 'post'>
-            <input class = "searchBox" name = "searchQuery" type="text" placeholder="Where are you going?">
-            <button  class = "searchButton">Search</button>
-          </form>
-        </div>
-    </div>
-    <div class="resultContainer" name = 'lastSearch' id ="<%=search %>">
-      <form action ='/going' method = 'post'>
-      <% if(data != null) { %>
-      <% for(let i=0; i < numBarsToDisplay; i++) { %>
 
-        <div class="results">
-          <div class = "resultItem"><img class = "barImage" src ="<%=data[i].image_url %>"></img>
-            <span class = 'barName'><a href = "<%=data[i].url %>" target = "_blank"><b><%=data[i].name %></b></a>
+        <!--SEARCH BOX AND BUTTON -->
+        <div class="container">
+            <div class="search">
+                <form action='/' method='post'>
+                    <input class="searchBox" name="searchQuery" type="text" placeholder="Where are you going?">
+                    <button class="searchButton">Search</button>
+                </form>
+            </div>
+        </div>
+
+        <!--RESULTS -->
+        <div class="resultContainer" name='lastSearch' id="<%=search %>">
+            <form action='/going' method='post'>
+                <% if(data != null) { %>
+                    <% for(let i=0; i < numBarsToDisplay; i++) { %>
+
+                        <div class="results">
+                            <div class="resultItem"><img class="barImage" src="<%=data[i].image_url %>"></img>
+                                <span class='barName'><a href = "<%=data[i].url %>" target = "_blank"><b><%=data[i].name %></b></a>
             <button name = "attendingButton" value ="<%=data[i].id %>"><%=attending[i] %> Going</button></span>
-            <p><i>"<%=data[i].snippet_text %>"</p></i></div>
-        </div>
+                                <p><i>"<%=data[i].snippet_text %>"</p></i></div>
+                        </div>
 
-        <% } %>
-      <% } %>
-    </form>
-    </div>
-  </main>
-  <footer>
-      <p>Nightlife Coordination App built by <a href ="https://www.freecodecamp.com/reecelangerock" target = '_blank'><b>Reece Langerock</b></a></p>
-      <p>This is a FCC Project fulfilling the user stories listed <a href ="https://www.freecodecamp.com/challenges/build-a-nightlife-coordination-app" target = '_blank'><b>here</b></a></p>
-      <p>Check out the Github Repo <a href ="https://github.com/ReeceLangerock/nightlife-app" target = '_blank'><b>here</b></a></p>
-  </footer>
+                        <% } %>
+                            <% } %>
+            </form>
+        </div>
+    </main>
+
+    <!--FOOTER -->
+    <footer>
+        <p>Nightlife Coordination App built by <a href="https://www.freecodecamp.com/reecelangerock" target='_blank'><b>Reece Langerock</b></a></p>
+        <p>This is a FCC Project fulfilling the user stories listed <a href="https://www.freecodecamp.com/challenges/build-a-nightlife-coordination-app" target='_blank'><b>here</b></a></p>
+        <p>Check out the Github Repo <a href="https://github.com/ReeceLangerock/nightlife-app" target='_blank'><b>here</b></a></p>
+    </footer>
 </body>
-<script type="text/javascript" src="/toggleGoingToBar.js"></script>
 
 </html>

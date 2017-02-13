@@ -11,7 +11,7 @@ router.use(passport.session());
 //google strategy
 passport.use(new GoogleStrategy({
         clientID: config.getGoogleClientID(),
-        clientSecret:  config.getGoogleClientSecret(),
+        clientSecret: config.getGoogleClientSecret(),
         callbackURL: "http://127.0.0.1:3000/auth/google/callback"
     },
     function(accessToken, refreshToken, profile, done) {
@@ -21,14 +21,13 @@ passport.use(new GoogleStrategy({
     }
 ));
 
-passport.serializeUser(function(user, callback){
+passport.serializeUser(function(user, callback) {
+    callback(null, user);
+});
 
-        callback(null, user);
-    });
-
-    passport.deserializeUser(function(user, callback){
-              callback(null, user);
-    });
+passport.deserializeUser(function(user, callback) {
+    callback(null, user);
+});
 
 router.get('/google',
     passport.authenticate('google', {
