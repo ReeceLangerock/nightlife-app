@@ -2,10 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 //sign out of oAuth
-router.get('/', (req, res) => {
-  console.log("signout");
+router.get('/', (req, res) => {  
   req.logout();
-  req.session.destroy();
+  req.session = null;
   res.redirect('/');
 });
 
