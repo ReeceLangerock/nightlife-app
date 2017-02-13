@@ -39,10 +39,10 @@
                     <% for(let i=0; i < numBarsToDisplay; i++) { %>
 
                         <div class="results">
-                            <div class="resultItem"><img class="barImage" src="<%=data[i].image_url %>"></img>
+                            <div class="resultItem"><img class="barImage" src="<%=data[i].image_url %>">
                                 <span class='barName'><a href = "<%=data[i].url %>" target = "_blank"><b><%=data[i].name %></b></a>
             <button name = "attendingButton" value ="<%=data[i].id %>"><%=attending[i] %> Going</button></span>
-                                <p><i>"<%=data[i].snippet_text %>"</p></i></div>
+                                <p><i>"<%=data[i].snippet_text %>"</i></p></div>
                         </div>
 
                         <% } %>
