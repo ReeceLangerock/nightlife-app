@@ -6,7 +6,6 @@ var path = require('path');
 var port = process.env.PORT || 3000;
 var passport = require('passport');
 var session = require('express-session');
-var config = require('./config.js');
 
 
 //MONGOOSE CONFIG

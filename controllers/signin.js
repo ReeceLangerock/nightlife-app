@@ -3,7 +3,6 @@ var GoogleStrategy = require('passport-google-oauth20').Strategy;
 var express = require('express');
 var passport = require('passport');
 var router = express.Router();
-var config = require('../config.js');
 router.use(passport.initialize());
 router.use(passport.session());
 

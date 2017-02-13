@@ -3,7 +3,6 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 var Yelp = require('yelp');
-var config = require('../config.js');
 var yelpConfig = = {
     consumer_key: process.env.yelp_key,
     consumer_secret: process.env.yelp_secret,
