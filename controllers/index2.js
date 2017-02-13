@@ -20,7 +20,12 @@ router.use(bodyParser.json());
 
 
 router.get('/', function(req, res) {
-
+    if(req.isAuthenticated()){
+      var pageTitle = 'Plans Tonight, ' + req.user.name.givenName + '?'
+    }
+    else{
+      var pageTitle = 'Plans Tonight?';
+    }
     //IF USER HASN'T SEARCHED FOR A LOCATION, RENDER BASIC PAGE
     if (!req.session.lastSearch) {
         res.render('index', {
@@ -50,7 +55,7 @@ router.get('/', function(req, res) {
                             data: data.businesses,
                             attending: attending,
                             numBarsToDisplay: numBarsToDisplay,
-                            pageTitle: 'Plans Tonight, ' + req.user.name.givenName + '?',
+                            pageTitle: pageTitle,
                             search: req.body.lastSearch
                         });
                     });
