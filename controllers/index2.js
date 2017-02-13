@@ -201,10 +201,8 @@ function updateNotGoing(barID, userID) {
                 '_id': barID
             }, {
                 $pull: { // remove entry for that user
-                    'attending': {
-                        $elemMatch: {
-                            'personAttending': userID
-                        }
+                    'attending': {   'personAttending': userID
+
                     }
                 }
             },
