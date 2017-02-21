@@ -1,4 +1,4 @@
-## Voting App
+## Nightlife Coordination App
 https://nightlife-srl.herokuapp.com/
 
 ### App Built Using
